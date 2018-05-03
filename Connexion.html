@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset = "utf.8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -73,7 +74,7 @@ input[type=submit]:hover {
 .vl {
   position: absolute;
   left: 50%;
-  bottom: 44%;
+  bottom: 38%;
   transform: translate(-50%);
   border: 2px solid #ddd;
   height: 175px;
@@ -125,7 +126,7 @@ input[type=submit]:hover {
 
 
 <div class="container">
-  <form action="/action_page.php">
+  
     <div class="row">
       
       <div class="vl">
@@ -135,15 +136,15 @@ input[type=submit]:hover {
       <!-- Colonne : Pour se créer un compte  -->
       <div class="col">
       	<h2 style="text-align:center">Cr&eacute;ation d'un nouveau compte</h2>
+      	<form action="Creationcompte.php" method="post" >
         <input type="text" name="email" placeholder="Email" required>
         <input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
         <input type="text" name="nom" placeholder="Nom" required>
         <input type="text" name="pseudo" placeholder="Pseudo" required>
         <input type="password" name="password" placeholder="Mot de passe" required>
-        
-        <input type="checkbox" checked="checked" name="Conditions"> Conditions </br>
     	
         <input type="submit" value="Cr&eacute;er mon compte"> 
+   		</form>
       </div>
 
       <!-- Colonne : Pour se connecter à son compte  -->
@@ -151,15 +152,16 @@ input[type=submit]:hover {
 
       	<h2 style="text-align:center">Connexion &agrave; un compte existant</h2>
         
-
+      	<form action="Connexion.php" method="post" >
         <input type="text" name="username" placeholder="Email ou pseudo" required>
-        <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="verifpassword" placeholder="Mot de passe" required >
         <input type="submit" value="Connexion">
         <a href="#" style="color:black" class="btn">Mot de passe oubli&eacute; ? </a>
+        </form>
       </div>
       
     </div>
-  </form>
+  
 </div>
 
 </body>
