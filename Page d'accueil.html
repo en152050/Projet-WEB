@@ -11,10 +11,22 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
-	* {box-sizing: border-box;}
+	
+	body {
+	  font-family: Arial, Helvetica, sans-serif;
+	}
+
+	* {box-sizing: border-box;
+	}
+
+	.container-fluid {
+	  position: relative;
+	  border-radius: 5px;
+	  background-color: #f2f2f2;
+	  padding: 20px 0 30px 0;
+	} 
 
 	
-
 	.topnav .search-container button:hover {
 	  background: #ccc;
 	}
@@ -50,21 +62,34 @@
 		left: 250px;
 		top : 15px;
 
+
 	}
 
 	.col-lg-4 {
-		background-color: white; 
+		 padding-left:40px;
+		background-color: #f2f2f2; 
 		height:60px;
 
 	}
 
 	.col-lg-1 {
-		background-color: #E6E6FA; 
+		padding-left: 40px;
+		background-color: #f2f2f2; 
 	}
 
 	h1 {
 		position : relative;
-		left : 20px;
+		left : 40px;
+	}
+
+	/* vertical line */
+	.vl {
+	  position: absolute;
+	  left: 50%;
+	  bottom: 44%;
+	  transform: translate(-50%);
+	  border: 2px solid #ddd;
+	  height: 175px;
 	}
 
 
@@ -78,7 +103,7 @@
   	<div class="container-fluid">
   		<div class="row">
   			<div class="col-lg-4">
-  				<img src="logo_ece.png" alt="logo" width="130" height="60"> </a>
+  				<img src="logo_ece.png" alt="logo" width="180" height="50"> </a>
   				<div class="search-container">
   					<form action="/action_page.php">
   						<input type="text" placeholder="Chercher.." name="chercher">
@@ -127,10 +152,15 @@
   		</div>
   	</div>
 
+  
 
-  	<h1> Accueil </h1>
+  	
   	<div class="container-fluid">
+  		<h1> Accueil </h1>
   		<div class="row">
+  			<div class="vl">
+  			  
+  			</div>
   			<div class="col-lg-3" style="background-color: white; border-right:outset; height:1000px;"> hello
   			</div>
 
