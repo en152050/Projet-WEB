@@ -1,178 +1,148 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Page d'accueil</title>
+<html>
+<head>
+
+	<title> Profil </title>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style>
-	
-	body {
-	  font-family: Arial, Helvetica, sans-serif;
-	}
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	* {box-sizing: border-box;
-	}
+  <style type="text/css">
 
-	.container-fluid {
-	  position: relative;
-	  border-radius: 5px;
-	  background-color: #f2f2f2;
-	  padding: 20px 0 30px 0;
-	} 
-
-	
-	.topnav .search-container button:hover {
-	  background: #ccc;
-	}
-
-	.accueil {
-		text-align: right;
-	}
-
-	.dropdown-content {
-	    display: none;
-	    position: absolute;
-	    background-color: #f1f1f1;
-	    min-width: 120px;
-	    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
-	    
-	}
-
-	.dropdown-content a {
-	    color: black;
-	    padding: 10px 16px;
-	    text-decoration: none;
-	    display: block;
-	}
-
-	.dropdown-content a:hover {background-color: #ddd}
-
-	.dropdown:hover .dropdown-content {
-	    display: block;
-	}
-
-	.search-container {
-		position: absolute;
-		left: 250px;
-		top : 15px;
+  .menu
+  {
+   padding: 0;
+   margin: 0;
+   list-style-type: none;
+   position : fixed;
+   top: 0;
+   width: 100%;
+   line-height: 20px;
+   text-align : center;
+    z-index: 1;
 
 
-	}
+ }
 
-	.col-lg-4 {
-		 padding-left:40px;
-		background-color: #f2f2f2; 
-		height:60px;
-
-	}
-
-	.col-lg-1 {
-		padding-left: 40px;
-		background-color: #f2f2f2; 
-	}
-
-	h1 {
-		position : relative;
-		left : 40px;
-	}
-
-	/* vertical line */
-	.vl {
-	  position: absolute;
-	  left: 50%;
-	  bottom: 44%;
-	  transform: translate(-50%);
-	  border: 2px solid #ddd;
-	  height: 175px;
-	}
+ /* Two-column layout */
+ .col {
+   float: left;
+   width: 30%;
+   margin: auto;
+   padding: 0 50px;
+   margin-top: 6px;
+ }
 
 
-	
-	</style>
-  </head>
+ .navbar-default {
+   /* Couleur de fond de la barre de navigation */
+   background-color: #f2f2f2;
+   border-color: black;
+   
+ }
+
+ /* Couleur des titres affichés dans la barre */
+ .navbar-default .navbar-brand {
+   color: green;
+   margin : 0;
+ }
+
+ /* Couleur utilisée pour les liens */
+ .navbar-default .navbar-nav > li > a {
+   color: black;
+ }
+
+
+ /* Couleur utilisée pour le lien actif (celui qui est affiché sur la page) */
+ .navbar-default .navbar-nav > .active > a, 
+ .navbar-default .navbar-nav > .active > a:hover, 
+ .navbar-default .navbar-nav > .active > a:focus {
+   color: white;
+   background-color: white;
+ }
+
+
+/* lien pour modifier tous les trucs de la barre
+https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications-faire-dans-les-css-pour-changer-la-couleur-de-la-navbar-barre-de-navigation-dans-bootstrap/
+*/
+
+</style>
+</head>
 
 
 
-  <body>
-  	<div class="container-fluid">
-  		<div class="row">
-  			<div class="col-lg-4">
-  				<img src="logo_ece.png" alt="logo" width="180" height="50"> </a>
-  				<div class="search-container">
-  					<form action="/action_page.php">
-  						<input type="text" placeholder="Chercher.." name="chercher">
-  						<button type="submit"><i class="fa fa-search"></i></button>
-  					</form>
-  				</div>
-  			</div>
+<body>
 
-  			<div class="col-lg-1" >
-  				<a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"> </a> </br>
-  				<span class="accueil">Accueil</span> 
-  			</div>
+  <div class = "menu">
 
-  			<div class="col-lg-1" >
-  				<a href="Réseau.html"> <img src="reseau.png" alt="Reseau" width="40" height="40"> </a> </br>
-  				<span class="reseau">R&eacute;seau</span> 
-  			</div>
+   <nav class="navbar navbar-default">
 
-  			<div class="col-lg-1" >
-  				<a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"> </a> </br>
-  				<span class="emploi">Emplois</span>
-  			</div>
+    <div class="container-fluid">
 
-  			<div class="col-lg-1">
-  				<a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </a>
-  				<span class="notification">Notifications</span>
-  			</div>
 
-  			<div class="col-lg-1" >
-  				<a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"> </a>
-  				<span class="messagerie">Messagerie</span>
-  			</div>
-  			<div class="col-lg-1" >
-  				<div class="dropdown">
-  					<a href="Profil.html"> <img src="monprofil.png" alt="Mon Profil" width="40" height="40"> </a>  </br>
-  					<span class="profil">Mon Profil</span>
-  					<div class="dropdown-content">
-  						<a href="#">Voir profil</a> </br>
-  						<a href="#">Modifier profil</a> </br>
-  						<a href="#">Mode admin</a> </br>
-  						<a href="#">Album photos</a> </br>
-  						<a href="#">D&eacute;connexion</a> </br>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  	</div>
+      <div class="navbar-header">
+       <a class=navbar-brand rel=home href=# ><img src=logo_ece.png alt="logo" width="180" height="50"></a>
+     </div>
+
+     <div class="nav navbar-nav" style="padding-top: 33px">
+       <form action="/action_page.php">
+        <input type="text" placeholder="Chercher.." name="chercher">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li> <a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
+      <li><a href="Réseau.html"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
+      <li><a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
+      <li><a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
+        <li><a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.html"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="Profil.html">Voir mon profil</a></li>
+            <li><a href="#">Modifier mon profil</a></li>
+            <li class="divider"></li>
+            <li><a href="Media.html">Photos et vidéos</a></li>
+            <li class="divider"></li>
+            <li><a href="Mode Admin.html">Mode admin</a></li>
+            <li><a href="#">Déconnexion</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+    </div> <!-- fin du conteneur fluide -->
+
+  </nav> <!-- fin du navbar -->
+
 
   
 
-  	
-  	<div class="container-fluid">
-  		<h1> Accueil </h1>
-  		<div class="row">
-  			<div class="vl">
-  			  
-  			</div>
-  			<div class="col-lg-3" style="background-color: white; border-right:outset; height:1000px;"> hello
-  			</div>
+</div> <!-- fin du menu -->
 
 
-  			<div class="col-lg-9" style="height:1000px; height:1000px;"> bonjour
-  			</div>
-  		</div>
+<div class="container-fluid" style="padding-top: 80px;">
+    <h1> Accueil </h1>
+    
+    <div class="row">
+    <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
+    </div>
 
-  	</div>
+
+    <div class="col-lg-9" style="height:1500px; "> 
+    </div>
+
+  </div>
+</div>
 
 
 
 
-  </body>
+
+</body>
 </html>
