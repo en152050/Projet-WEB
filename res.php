@@ -1,4 +1,8 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
+
 <html>
 <head>
 
@@ -133,7 +137,9 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 $db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234");
 
-$sql="SELECT * FROM reseau WHERE pseudo_utilisateur = 'yolomoche'";
+$a = $_SESSION['login'];
+
+$sql="SELECT * FROM reseau WHERE pseudo_utilisateur = '$a'";
 
 $stmt = $db->query($sql);
 
