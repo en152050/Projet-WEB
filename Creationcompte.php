@@ -19,7 +19,7 @@ if ($db_found) {
     $result = mysqli_query($db_handle, $sql);
 }
 else {
-    echo "Database livres is not found.";
+    echo "Database Projet_web is not found.";
 }
 
 mysqli_close($db_handle);

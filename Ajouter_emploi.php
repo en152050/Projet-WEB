@@ -66,6 +66,24 @@
    background-color: white;
  }
 
+/* style the submit button */
+input[type=button] {
+  background-color: grey;
+  color: black;
+  cursor: pointer;
+  height:100px;
+  width:100%;
+}
+
+input[type=button]:hover {
+  background-color: #f2f2f2;
+}
+
+h2 {
+  margin :0px;
+  padding-bottom: 20px;
+}
+
 
 /* lien pour modifier tous les trucs de la barre
 https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications-faire-dans-les-css-pour-changer-la-couleur-de-la-navbar-barre-de-navigation-dans-bootstrap/
@@ -98,7 +116,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
     <ul class="nav navbar-nav navbar-right">
       <li> <a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
-      <li><a href="Réseau.html"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
+      <li><a href="res.php"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
       <li><a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
       <li><a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
         <li><a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
@@ -128,6 +146,63 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 <div class="container-fluid" style="padding-top: 80px;">
     <h1> Emplois </h1>
+    
+    <div class="row">
+    <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
+      <a href="Voir_mes_emplois.php"> <input type="button" value="Voir vos publications"> </a>
+      <a href="Ajouter_emploi.php"> <input type="button" value="Ajouter une annonce"> </a>
+      <a href="Partager_emploi.php"> <input type="button" value="Partager une offre"> </a>
+    </div>
+
+
+    <div class="col-lg-9" style="height:1500px; "> 
+      <h2> Ajouter une annonce </h2>
+      <form action="Ajouter_emploi2.php" method="post"> 
+        <table>
+          <tr>
+            <td> <input type="text" name="titre" placeholder="Titre" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="societe" placeholder="Soci&eacute;t&eacute;" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+          <tr>
+              <td>   <select name="type" style="margin:10px; width:300px; height:30px;" required>
+                          <option value="Choix" selected disabled>Contrat :</option> 
+                          <option value="CDD">CDD</option> 
+                          <option value="CDI">CDI</option>
+                          <option value="ALternance">Alternance</option>
+                          <option value="Stage">Stage</option>
+                          <option value="Interim">Interim</option>
+                      </select>
+  
+              </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="experience" placeholder="&Eacute;xp&eacute;rience requise" style= "margin:10px; width:300px; height:70px;" required> </td> 
+          </tr>
+          <tr>
+            <td> <input type="text" name="capacite" placeholder="Capacit&eacute;s" style= "margin:10px; width:300px; height:70px;" required> </td> 
+          </tr>
+          <tr>
+            <td> <input type="text" name="lieu" placeholder="Lieu" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="remuneration" placeholder="R&eacute;mun&eacute;ration" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="description" placeholder="Description" style= "margin:10px; width:300px; height:70px;" required> </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="duree" placeholder="Dur&eacute;e" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+          <tr>
+            <td> <input type="submit" style= "margin:10px; width:300px; height:50px;" value="Publier"> </td>
+          </tr>
+
+        
+    </div>
+
+  </div>
 </div>
 
 

@@ -66,6 +66,19 @@
    background-color: white;
  }
 
+/* style the submit button */
+input[type=button] {
+  background-color: grey;
+  color: black;
+  cursor: pointer;
+  height:100px;
+  width:100%;
+}
+
+input[type=button]:hover {
+  background-color: #f2f2f2;
+}
+
 
 /* lien pour modifier tous les trucs de la barre
 https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications-faire-dans-les-css-pour-changer-la-couleur-de-la-navbar-barre-de-navigation-dans-bootstrap/
@@ -99,7 +112,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
     <ul class="nav navbar-nav navbar-right">
       <li> <a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
       <li><a href="res.php"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
-      <li><a href="Emplois.php"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
+      <li><a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
       <li><a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
         <li><a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.html"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
@@ -127,7 +140,56 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Media </h1>
+    <h1> Emplois </h1>
+    
+    <div class="row">
+    <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
+      <a href="Voir_mes_emplois.php"> <input type="button" value="Voir vos publications"> </a>
+      <a href="Ajouter_emploi.php"> <input type="button" value="Ajouter une annonce"> </a>
+      <a href="Partager_emploi.php"> <input type="button" value="Partager une offre"> </a>
+    </div>
+
+
+    <div class="col-lg-9" style="height:1500px; "> 
+        <?php
+
+          $database = "projet_web";
+            //Connecter l'utilisateur à la BDD
+          $db_handle= mysqli_connect('localhost', 'root', '1234');
+          $db_found = mysqli_select_db($db_handle,$database);
+          if ($db_found) {
+            $sql = "SELECT * FROM emploi";
+            $result = mysqli_query($db_handle, $sql);
+            
+            include('Connexion.php');
+            $identifiant = $_GET['login'];
+            echo "$identifiant"   ;
+            
+            while ($data = mysqli_fetch_assoc($result)) {
+          
+
+                echo "Nom de l'Emploi : "                                   .$data['nom_emploi'].  '<br>';
+                echo "Description de l'emploi : "                               .$data['description_emploi'].  '<br>';
+                echo "Experience : "                                  .$data['experience_emploi'].  '<br>';
+                echo "Capacités : "                        .$data['capacites_emploi'].  '<br>';
+                echo "Rémunération : "                             .$data['remuneration_emploi'].  '<br>';
+                echo "Lieu : "                              .$data['lieu_emploi'].  '<br>';
+                echo "Type : "                   .$data['type_emploi'].  '<br>';
+                echo "Societe : "            .$data['societe_emploi'].  '<br>';
+                echo "Duree : "            .$data['duree_emploi'].  '<br>';            
+                echo "<br />";
+            }
+          }
+          else {
+              echo "Database Projet_web is not found.";
+          }
+          mysqli_close($db_handle);
+
+        ?>
+      
+    </div>
+
+  </div>
 </div>
 
 
