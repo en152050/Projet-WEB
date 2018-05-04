@@ -97,19 +97,19 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <li> <a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
+      <li> <a href="Page d'accueil.php"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
       <li><a href="Réseau.php"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
-      <li><a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
-      <li><a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
-        <li><a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.html"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
+      <li><a href="Emplois.php"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
+      <li><a href="Notification.php"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
+        <li><a href="Messagerie.php"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.php"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="Profil.html">Voir mon profil</a></li>
+            <li><a href="Profil.php">Voir mon profil</a></li>
             <li><a href="#">Modifier mon profil</a></li>
             <li class="divider"></li>
-            <li><a href="Media.html">Photos et vidéos</a></li>
+            <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
-            <li><a href="Mode Admin.html">Mode admin</a></li>
+            <li><a href="Mode Admin.php">Mode admin</a></li>
             <li><a href="#">Déconnexion</a></li>
           </ul>
         </li>

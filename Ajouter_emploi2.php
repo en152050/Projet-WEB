@@ -1,4 +1,7 @@
 <?php
+  session_start();
+
+
 	$titre = isset($_POST["titre"])? $_POST["titre"] : "";
 	$societe = isset($_POST["societe"])? $_POST["societe"] : "";
 	$type = isset($_POST["type"])? $_POST["type"] : "";
@@ -17,7 +20,7 @@
 	if ($db_found) {
     $sql = "INSERT INTO emploi (nom_emploi, description_emploi, experience_emploi, capacites_emploi, remuneration_emploi, lieu_emploi, type_emploi, societe_emploi, duree_emploi) VALUES ('$titre','$description','$experience','$capacite','$remuneration','$lieu', '$type', '$societe','$duree')";
     $result = mysqli_query($db_handle, $sql);
-    header("location:Emplois.html");
+    header("location:Emplois.php");
 }
 else {
     echo "Database Projet_web is not found.";

@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
 $email = isset($_POST["email"])? $_POST["email"] : "";
 $prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";

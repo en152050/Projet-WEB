@@ -2,6 +2,9 @@
 
 
 	<?php
+
+	session_start();
+	$_SESSION['login'] = "";
 	$username = isset($_POST["username"])? $_POST["username"] : "";
 	$verifpassword = isset($_POST["verifpassword"])? $_POST["verifpassword"] : "";
 	/*$pass_hache = password_hash($_POST['verifpassword'], PASSWORD_DEFAULT);*/
@@ -22,10 +25,11 @@
 		while ($donnees = mysqli_fetch_assoc($result)) {
 			if (strcmp($donnees['mot_de_passe_utilisateur'], $verifpassword) == 0) {
 				
-				/*header("location:Page d'accueil.html");*/
-				$login=$username;
-				echo "$login";
-				?> <a href="Page d'accueil.html"> Cliquez ici pour acceder a la page d'accueil </a> <?php
+				
+				$_SESSION['login'] = $username;
+				/*echo $_SESSION['login'];*/
+				header("location:Page d'accueil.php");
+				?> <a href="Page d'accueil..php"> Cliquez ici pour acceder a la page d'accueil </a> <?php
 				
 			}
 			else {
