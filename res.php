@@ -98,8 +98,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
     <ul class="nav navbar-nav navbar-right">
       <li> <a href="Page d'accueil.html"> <img src="accueil.png" alt="Accueil" width="40" height="40"></br>Accueil</a></li>
-      <li><a href="Réseau.html"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
-      <li><a href="Emplois.php"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
+      <li><a href="Réseau.php"> <img src="reseau.png" alt="Reseau" width="40" height="40"></br>Réseau</a></li>
+      <li><a href="Emplois.html"> <img src="emploi.png" alt="Emplois" width="40" height="40"></br>Emplois</a></li>
       <li><a href="Notification.html"> <img src="notification.png" alt="Notification" width="40" height="40"> </br>Notifications</a>
         <li><a href="Messagerie.html"> <img src="messagerie.png" alt="Messagerie" width="40" height="40"></br>Messagerie</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.html"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
@@ -128,12 +128,37 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 <div class="container-fluid" style="padding-top: 80px;">
     <h1> Réseau </h1>
-    
+
+<?php
+
+$db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234");
+
+$sql="SELECT * FROM reseau WHERE pseudo_utilisateur = 'yolomoche'";
+
+$stmt = $db->query($sql);
+
+$rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
+
+
+?>
+
+  <table border="1" width ="100%" cellpadding="4">
+<tr><th>contact</th><th>relation</th></tr>
+
+<?php foreach($rows as $row): ?>
+
+<tr>
+  
+  <td><?php echo $row['pseudo_contact'] ?></td>
+  <td><?php echo $row['relation_reseau'] ?></td>
+</tr>
+
+<?php endforeach; ?>
+</table>        
+
+
+
 </div>
-
-
-
-
 
 </body>
 </html>
