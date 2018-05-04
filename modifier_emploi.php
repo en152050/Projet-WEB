@@ -1,8 +1,8 @@
 <?php
   session_start();
 ?>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -70,6 +70,24 @@
    background-color: white;
  }
 
+/* style the submit button */
+input[type=button] {
+  background-color: grey;
+  color: black;
+  cursor: pointer;
+  height:100px;
+  width:100%;
+}
+
+input[type=button]:hover {
+  background-color: #f2f2f2;
+}
+
+h2 {
+  margin :0px;
+  padding-bottom: 20px;
+}
+
 
 /* lien pour modifier tous les trucs de la barre
 https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications-faire-dans-les-css-pour-changer-la-couleur-de-la-navbar-barre-de-navigation-dans-bootstrap/
@@ -131,82 +149,69 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Reseau </h1>
+    <h1> Emplois </h1>
     
     <div class="row">
     <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
-      <h3> Ajouter des contacts  </h3>
-
-      
+      <a href="Voir_mes_emplois.php"> <input type="button" value="Voir vos publications"> </a>
+      <a href="Ajouter_emploi.php"> <input type="button" value="Ajouter une annonce"> </a>
+      <a href="Partager_emploi.php"> <input type="button" value="Partager une offre"> </a>
     </div>
 
 
     <div class="col-lg-9" style="height:1500px; "> 
-      <?php
-      $a=$_SESSION['login'];
-      $database = "projet_web";
-        //Connecter l'utilisateur à la BDD
-      $db_handle= mysqli_connect('localhost', 'root', '1234');
-      $db_found = mysqli_select_db($db_handle,$database);
-      ?>
-      
-        <table class="table">
-          <thead>
-            <tr>
-              <th> Photo</th>
-              
-              <th> Prenom</th>
-              
-              <th> Nom</th>
-              
-              <th> Pseudo</th>
+      <h2> Modifier l'annonce </h2>
+      <form action="modifier_emploi2.php" method="post"> 
+        <table>
+          <tr>
+            <td> <input type="text" name="titre" placeholder="Titre" style= "margin:10px; width:300px; height:30px;" > </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="societe" placeholder="Soci&eacute;t&eacute;" style= "margin:10px; width:300px; height:30px;" > </td> 
+          </tr>
+          <tr>
+              <td>   <select name="type" style="margin:10px; width:300px; height:30px;" >
+                          <option value="Choix" selected disabled>Contrat :</option> 
+                          <option value="CDD">CDD</option> 
+                          <option value="CDI">CDI</option>
+                          <option value="ALternance">Alternance</option>
+                          <option value="Stage">Stage</option>
+                          <option value="Interim">Interim</option>
+                      </select>
+  
+              </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="experience" placeholder="&Eacute;xp&eacute;rience requise" style= "margin:10px; width:300px; height:70px;" > </td> 
+          </tr>
+          <tr>
+            <td> <input type="text" name="capacite" placeholder="Capacit&eacute;s" style= "margin:10px; width:300px; height:70px;" > </td> 
+          </tr>
+          <tr>
+            <td> <input type="text" name="lieu" placeholder="Lieu" style= "margin:10px; width:300px; height:30px;" > </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="remuneration" placeholder="R&eacute;mun&eacute;ration" style= "margin:10px; width:300px; height:30px;" > </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="description" placeholder="Description" style= "margin:10px; width:300px; height:70px;" > </td> 
+          </tr>
+          <tr>
+            <td>  <input type="text" name="duree" placeholder="Dur&eacute;e" style= "margin:10px; width:300px; height:30px;" > </td> 
+          </tr>
+          <tr>
+            <td> <input type="submit" style= "margin:10px; width:300px; height:50px;" value="Modifier"> </td>
+          </tr>
 
-              <th> Relation</th>
-            </tr>
-          </thead>
-          <?php 
-            if ($db_found) {
-            $sql = "SELECT * FROM reseau WHERE pseudo_utilisateur = '$a'";
-            $result = mysqli_query($db_handle, $sql);
-            while ($data = mysqli_fetch_assoc($result)) {
-                $b = $data['pseudo_contact'];
-
-                $sql2 = "SELECT * FROM contact WHERE pseudo_contact = '$b' ";
-                $result2 = mysqli_query($db_handle, $sql2);
-                while ($data2 = mysqli_fetch_assoc($result2)) {
-
-                  ?>
-                  <tr> 
-
-                    <td> <?php echo $data2['photo_contact'] ?>  </td>
-                    
-                    <td> <?php echo $data2['prenom_contact'] ?> </td>
-                    
-                    <td> <?php echo $data2['nom_contact'] ?> </td>
-                    
-                    <td> <?php echo $data2['pseudo_contact'] ?> </td>
-
-                    <td> <?php echo $data['relation_reseau'] ?> </td>
-                    
-                  </tr>
-                  <?php
-
-              
-
-                } 
-            }
-          }
-          else {
-              echo "Database Projet_web is not found.";
-          }
-          mysqli_close($db_handle);
-          ?>
-          
-        </table>
+        
     </div>
 
   </div>
 </div>
+
+
+
+
 
 </body>
 </html>

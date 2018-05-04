@@ -156,28 +156,55 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
     <div class="col-lg-9" style="height:1500px; "> 
         <?php
-
+          $a=$_SESSION['login'];
           $database = "projet_web";
             //Connecter l'utilisateur à la BDD
           $db_handle= mysqli_connect('localhost', 'root', '1234');
           $db_found = mysqli_select_db($db_handle,$database);
           if ($db_found) {
-            $sql = "SELECT * FROM emploi";
+            $sql = "SELECT * FROM annonce WHERE pseudo_utilisateur = '$a'";
             $result = mysqli_query($db_handle, $sql);
+            
             while ($data = mysqli_fetch_assoc($result)) {
-          
+                 
+                 $b = $data['nom_emploi'];
+                 
 
-                echo "Nom de l'Emploi : "                                   .$data['nom_emploi'].  '<br>';
-                echo "Description de l'emploi : "                               .$data['description_emploi'].  '<br>';
-                echo "Experience : "                                  .$data['experience_emploi'].  '<br>';
-                echo "Capacités : "                        .$data['capacites_emploi'].  '<br>';
-                echo "Rémunération : "                             .$data['remuneration_emploi'].  '<br>';
-                echo "Lieu : "                              .$data['lieu_emploi'].  '<br>';
-                echo "Type : "                   .$data['type_emploi'].  '<br>';
-                echo "Societe : "            .$data['societe_emploi'].  '<br>';
-                echo "Duree : "            .$data['duree_emploi'].  '<br>';
-                echo "<br />";
+                $sql2 = "SELECT * FROM emploi WHERE nom_emploi = '$b' ";
+                $result2 = mysqli_query($db_handle, $sql2);
+                while ($data2 = mysqli_fetch_assoc($result2)) {
+
+                                            
+                                            echo "Nom de l'Emploi : "                                   .$data2['nom_emploi'].  '<br>';
+
+                                            echo "Description de l'emploi : "                               .$data2['description_emploi'].  '<br>';
+                                            echo "Experience : "                                  .$data2['experience_emploi'].  '<br>';
+                                            echo "Capacités : "                        .$data2['capacites_emploi'].  '<br>';
+                                            echo "Rémunération : "                             .$data2['remuneration_emploi'].  '<br>';
+                                            echo "Lieu : "                              .$data2['lieu_emploi'].  '<br>';
+                                            echo "Type : "                   .$data2['type_emploi'].  '<br>';
+                                            echo "Societe : "            .$data2['societe_emploi'].  '<br>';
+                                            echo "Duree : "            .$data2['duree_emploi'].  '<br>';            
+                                            
+                                            
+                                            ?> <a href="effacer.php"> <img src="effacer.png" alt="effacer" height="30" width="30" > </a>
+                                              <a href="modifier_emploi.php"> <img src="modifier.png" alt="modifier" height="30" width="30" > </a>
+                                            <?php
+                                            echo "<br />";
+                                            echo "<br />";
+                                            
+                                        }
+
+
+
+
             }
+
+           
+            
+
+            
+
           }
           else {
               echo "Database Projet_web is not found.";
