@@ -189,6 +189,11 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
               </td> 
           </tr>
           <tr>
+            <td> <input type="text" name="img" placeholder="Chemin de l'image" style= "margin:10px; width:300px; height:30px;" required> </td> 
+          </tr>
+
+
+          <tr>
             <td> <input type="submit" style= "margin:10px; width:300px; height:50px;" value="Publier"> </td>
           </tr>
 

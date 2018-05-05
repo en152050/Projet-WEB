@@ -9,6 +9,7 @@
 	
 	$participation = isset($_POST["participation"])? $_POST["participation"] : "";
 	$description = isset($_POST["description"])? $_POST["description"] : "";
+	$img = isset($_POST["img"])? $_POST["img"] : "";
 
 
     ///Identifier la BDD
@@ -17,7 +18,7 @@
 	$db_handle= mysqli_connect('localhost', 'root', '1234');
 	$db_found = mysqli_select_db($db_handle,$database);
 	if ($db_found) {
-    $sql = "INSERT INTO evenement (nom_evenement, date_evenement, heure_evenement, lieu_evenement, participation_evenement , description_evenement ) VALUES ('$nom','$date','$heure','$lieu', '$participation','$description')";
+    $sql = "INSERT INTO evenement (nom_evenement, date_evenement, heure_evenement, lieu_evenement, participation_evenement , description_evenement,image ) VALUES ('$nom','$date','$heure','$lieu', '$participation','$description', '$img')";
     $result = mysqli_query($db_handle, $sql);
 
 
