@@ -199,7 +199,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
                   ?>
                   <tr> 
 
-                    <td> <?php echo $data2['photo_utilisateur']; ?>  </td>
+                    <td> <img src="<?php echo $data2['photo_utilisateur']; ?> " class="img-circle" alt="logo" width="auto" height="30">  </td>
                     
                     <td> <?php echo $data2['prenom_utilisateur'] ?> </td> 
                     
