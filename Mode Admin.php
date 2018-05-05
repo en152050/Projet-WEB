@@ -1,16 +1,16 @@
 <?php
   session_start();
 ?>
-
 <!DOCTYPE html>
+
 <html>
 <head>
 
-	<title> Profil </title>
+  <title> Profil </title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -111,6 +111,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
             <li><a href="Profil.php">Voir mon profil</a></li>
             <li><a href="#">Modifier mon profil</a></li>
             <li class="divider"></li>
+            <li class="divider"></li>
             <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
             <li><a href="Mode Admin.php">Mode admin</a></li>
@@ -131,13 +132,98 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Mode Admin </h1>
+    <h1> Mode ADMIN </h1>
     
+    <div class="row">
+    <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
+      <h3> Rechercher </h3>
+      <form method="post" action="chercherMA.php">
+        <table>
+          <tr>
+            <td><input type="text" class = "class-form" name="identifiant" placeholder="Email ou Pseudo" style="padding:8px; margin-left:50px;  margin-top:30px; width:250px;"></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Rechercher" style="padding:10px; margin-left:120px;  margin-top:30px; width:100px;"></td>
+          </tr>
+      </table>
+      </form>
+
+      <a href="Mode Admin.php">  <button>Revenir au HUB entier</button></a>
+
+      
+    </div>
+
+
+    <div class="col-lg-9" style="height:1500px; "> 
+      <?php
+      $a=$_SESSION['login'];
+      $database = "projet_web";
+        //Connecter l'utilisateur à la BDD
+      $db_handle= mysqli_connect('localhost', 'root', '1234');
+      $db_found = mysqli_select_db($db_handle,$database);
+      ?>
+      
+        <table class="table">
+          <thead>
+            <tr>
+              <th> Photo</th>
+              
+              <th> Prenom</th>
+              
+              <th> Nom</th>
+              
+              <th> Pseudo</th>
+
+              <th> Email</th>
+
+              <th> </th>
+            </tr>
+          </thead>
+          <?php 
+            if ($db_found) {
+            $sql = "SELECT * FROM utilisateur ";
+            $result = mysqli_query($db_handle, $sql);
+
+
+
+            while ($data = mysqli_fetch_assoc($result)) {
+
+
+                  ?>
+                  <tr> 
+
+                    <td> <?php echo $data['photo_utilisateur']; ?>  </td>
+                    
+                    <td> <?php echo $data['prenom_utilisateur'] ?> </td> 
+                    
+                    <td> <?php echo $data['nom_utilisateur']; ?> </td>
+                    
+                    <td> <?php echo $data['pseudo_utilisateur'] ?> </td>
+
+                    <td> <?php echo $data['email_utilisateur'] ?> </td>
+
+                    <td>  <a href="effacer_du_hub.php?pseudo=<?= $data['pseudo_utilisateur'] ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
+                  </tr>
+                  <?php
+
+
+
+              
+                  }
+                }
+
+        
+          else {
+              echo "Database Projet_web is not found.";
+          }
+          mysqli_close($db_handle);
+          ?>
+          
+        </table>
+    </div>
+
+  </div>
 </div>
-
-
-
-
 
 </body>
 </html>

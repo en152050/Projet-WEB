@@ -175,9 +175,7 @@
   $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
 
   foreach($rows as $row): ?>
-
-
-
+  
   
   <div class=lol>
   </div>
@@ -208,7 +206,7 @@
               <img src=carte.png alt="logo" width="auto" height="28"><?php echo $row['region_utilisateur'];?></br></br>
               <img src=telephone.png alt="logo" width="auto" height="28"><?php echo $row['email_utilisateur'];?></br></br>
              <button type="button" class="btn" style="margin-left:40%; margin-top : 10px; font-size: 23px">Photos</button></p> 
-             </br><center><a href="<?php echo $row['cv_utilisateur'];?>" > Télécharger le CV </a> </center>
+             </br><center><div class="cv" style="margin-bottom: 30px; "><a href="<?php echo $row['cv_utilisateur'];?>" > Télécharger le CV </a></div> </center>
       </div>
 
 

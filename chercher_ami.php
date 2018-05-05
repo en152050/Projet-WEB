@@ -182,11 +182,11 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
             if ($db_found) {
             $a=$_SESSION['login'];
             $identifiant = isset($_POST["identifiant"])? $_POST["identifiant"] : "";
-            $sql = "SELECT * FROM utilisateur WHERE pseudo_utilisateur = '$identifiant' OR email_utilisateur = '$identifiant' ";
+            $sql = "SELECT * FROM utilisateur WHERE pseudo_utilisateur LIKE '%$identifiant%' OR email_utilisateur LIKE '%$identifiant%' ";
             $result = mysqli_query($db_handle, $sql);
 
             while ($data = mysqli_fetch_assoc($result)) {
-                  $sql2= "SELECT email_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a '";
+                  $sql2= "SELECT email_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a'";
                   $result2 = mysqli_query($db_handle, $sql2);
                   while ($data2 = mysqli_fetch_assoc($result2)) {
                     $d=$data2['email_utilisateur'];
