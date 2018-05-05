@@ -173,51 +173,34 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
               <th> Email</th>
 
-              <th> Relation</th>
-
               <th> </th>
             </tr>
           </thead>
           <?php 
             if ($db_found) {
-            $sql = "SELECT * FROM reseau WHERE pseudo_utilisateur = '$a'";
+            $identifiant = isset($_POST["identifiant"])? $_POST["identifiant"] : "";
+            $sql = "SELECT * FROM utilisateur WHERE pseudo_utilisateur = '$identifiant' OR email_utilisateur = '$identifiant' ";
             $result = mysqli_query($db_handle, $sql);
-            while ($data = mysqli_fetch_assoc($result)) {
-                $b = $data['email_utilisateur'];
 
-                $sql2 = "SELECT * FROM utilisateur WHERE email_utilisateur = '$b' ";
-                $result2 = mysqli_query($db_handle, $sql2);
-                
-                while ($data2 = mysqli_fetch_assoc($result2)) {
-                  
+            while ($data = mysqli_fetch_assoc($result)) {
                   ?>
                   <tr> 
 
-                    <td> <?php echo $data2['photo_utilisateur']; ?>  </td>
+                    <td> <?php echo $data['photo_utilisateur'] ?>  </td>
                     
-                    <td> <?php echo $data2['prenom_utilisateur'] ?> </td> 
+                    <td> <?php echo $data['prenom_utilisateur'] ?> </td>
                     
-                    <td> <?php echo $data2['nom_utilisateur']; ?> </td>
+                    <td> <?php echo $data['nom_utilisateur'] ?> </td>
                     
-                    <td> <?php echo $data2['pseudo_utilisateur'] ?> </td>
+                    <td> <?php echo $data['pseudo_utilisateur'] ?> </td>
 
-                    <td> <?php echo $data2['email_utilisateur'] ?> </td>
+                    <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td> <?php echo $data['relation_reseau'] ?> </td>
+                    <td> <a href="ajouter_ami.php"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
 
-                    <td> <a href="effacer_ami.php"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
                     
                   </tr>
                   <?php
-
-
-
-              
-
-                }
-
-               
-
             }
           }
           else {
@@ -234,3 +217,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 </body>
 </html>
+
+
+
+
+
