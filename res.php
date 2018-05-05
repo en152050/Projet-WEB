@@ -176,6 +176,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
               <th> Relation</th>
 
               <th> </th>
+
+              <th> </th>
             </tr>
           </thead>
           <?php 
@@ -208,6 +210,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
                     <td> <?php echo $data2['email_utilisateur'] ?> </td>
 
                     <td> <?php echo $data['relation_reseau'] ?> </td>
+
+                    <td> <a href="voir_profil.php?pseudo=<?= $data2['pseudo_utilisateur'] ?>">Voir profil </a> </td>
 
                     <td> <a href="effacer_ami.php?email=<?= $data2['email_utilisateur'] ?>  &pseudo=<?= $data2['pseudo_utilisateur'] ?>  &emaillogin=<?= $d ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
                     

@@ -148,7 +148,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
       </table>
       </form>
 
-      <a href="Mode Admin.php">  <button>Revenir au HUB entier</button></a>
+      <a href="Mode Admin.php">  <button style="margin-left:85px; margin-top:30px; padding: 10px;">Revenir au HUB entier</button></a>
 
       
     </div>
@@ -187,7 +187,11 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
             while ($data = mysqli_fetch_assoc($result)) {
-
+                $sql2="SELECT administrateur_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a' ";
+                $result2 = mysqli_query($db_handle, $sql2);
+                while ($data2 = mysqli_fetch_assoc($result2)) {
+                $z=$data2['administrateur_utilisateur'];
+                if ($z==1){
 
                   ?>
                   <tr> 
@@ -202,13 +206,16 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
                     <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td>  <a href="effacer_du_hub.php?pseudo=<?= $data['pseudo_utilisateur'] ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
+                    <td>  <a href="effacer_du_hub.php?pseudo=<?= $data['pseudo_utilisateur'] ?> &email=<?= $data['email_utilisateur']?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
                   </tr>
                   <?php
 
+                    }
+                  else {
 
+                  }
 
-              
+                  }
                   }
                 }
 
