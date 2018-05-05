@@ -180,7 +180,7 @@
   <div class=lol>
   </div>
 
-  <img src="<?php echo $row['photo_utilisateur'] ?>" class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 30px; height : 275px; width:auto;"> </br></br></br> 
+  <a href="changer_photo.php" > <img src="<?php echo $row['photo_utilisateur'] ?>" class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 30px; height : 275px; width:auto;"> </br></br></br> </a>
 
 
 
