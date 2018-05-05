@@ -109,7 +109,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Profil.php"><img src="monprofil.png" alt="Mon Profil" width="40" height="40"></br>Mon profil <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="Profil.php">Voir mon profil</a></li>
-            <li><a href="#">Modifier mon profil</a></li>
+            <li><a href="ledeces.php">Modifier mon profil</a></li>
             <li class="divider"></li>
             <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
