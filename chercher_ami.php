@@ -175,42 +175,40 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
               <th> </th>
 
-              <th> </th>
+              
             </tr>
           </thead>
           <?php 
             if ($db_found) {
+            $a=$_SESSION['login'];
             $identifiant = isset($_POST["identifiant"])? $_POST["identifiant"] : "";
             $sql = "SELECT * FROM utilisateur WHERE pseudo_utilisateur = '$identifiant' OR email_utilisateur = '$identifiant' ";
             $result = mysqli_query($db_handle, $sql);
 
             while ($data = mysqli_fetch_assoc($result)) {
+                  $sql2= "SELECT email_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a '";
+                  $result2 = mysqli_query($db_handle, $sql2);
+                  while ($data2 = mysqli_fetch_assoc($result2)) {
+                    $d=$data2['email_utilisateur'];
                   ?>
                   <tr> 
-
+                    
                     <td> <?php echo $data['photo_utilisateur'] ?>  </td>
                     
                     <td> <?php echo $data['prenom_utilisateur'] ?> </td>
                     
                     <td> <?php echo $data['nom_utilisateur'] ?> </td>
                     
-                    <td> <?php echo $data['pseudo_utilisateur'] ?> </td>
+                    <td> <?php echo $data['pseudo_utilisateur'] ?>" </td>
 
                     <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td>
-
-                    	<a href="ajouter_ami.php?pseudo=<?= $data['pseudo_utilisateur'] ?>"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
-
-                    <td> <select name="type" style="width:300px; height:30px;" required>
-                          <option value="Choix de la relation" selected disabled>Contrat :</option> 
-                          <option value="amicale">CDD</option> 
-                          <option value="professionnelle">CDD</option> 
-                      </select></td>
+                    <td> <a href="ajouter_ami.php?email=<?= $data['email_utilisateur'] ?> &pseudo=<?= $data['pseudo_utilisateur'] ?> &emaillogin=<?= $d ?>"> <img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
 
                     
                   </tr>
                   <?php
+                }
             }
           }
           else {
