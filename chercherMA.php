@@ -6,11 +6,11 @@
 <html>
 <head>
 
-  <title> Profil </title>
+	<title> Profil </title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet"
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -111,7 +111,6 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
             <li><a href="Profil.php">Voir mon profil</a></li>
             <li><a href="#">Modifier mon profil</a></li>
             <li class="divider"></li>
-            <li class="divider"></li>
             <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
             <li><a href="Mode Admin.php">Mode admin</a></li>
@@ -132,15 +131,15 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Mode ADMIN </h1>
+    <h1> Reseau </h1>
     
     <div class="row">
     <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
-      <h3> Rechercher </h3>
+      <h3> Ajouter des contacts  </h3>
       <form method="post" action="chercherMA.php">
         <table>
           <tr>
-            <td><input type="text" class = "class-form" name="identifiant" placeholder="Email ou Pseudo" style="padding:8px; margin-left:50px;  margin-top:30px; width:250px;"></td>
+            <td><input type="text" name="identifiant" placeholder="Email ou Pseudo" style="padding:8px; margin-left:50px;  margin-top:30px; width:250px;"></td>
           </tr>
           <tr>
             <td><input type="submit" value="Rechercher" style="padding:10px; margin-left:120px;  margin-top:30px; width:100px;"></td>
@@ -148,7 +147,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
       </table>
       </form>
 
-      <a href="Mode Admin.php">  <button>Revenir au HUB entier</button></a>
+        <a href="Mode Admin.php">  <button>Revenir au HUB entier</button></a>
 
       
     </div>
@@ -177,42 +176,43 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
               <th> Email</th>
 
               <th> </th>
+
+              
             </tr>
           </thead>
           <?php 
             if ($db_found) {
-            $sql = "SELECT * FROM utilisateur ";
+            $a=$_SESSION['login'];
+            $identifiant = isset($_POST["identifiant"])? $_POST["identifiant"] : "";
+            $sql = "SELECT * FROM utilisateur WHERE pseudo_utilisateur LIKE '%$identifiant%' OR email_utilisateur LIKE '%$identifiant%' ";
             $result = mysqli_query($db_handle, $sql);
 
-
-
             while ($data = mysqli_fetch_assoc($result)) {
-
-
+                  $sql2= "SELECT email_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a'";
+                  $result2 = mysqli_query($db_handle, $sql2);
+                  while ($data2 = mysqli_fetch_assoc($result2)) {
+                    $d=$data2['email_utilisateur'];
                   ?>
                   <tr> 
-
-                    <td> <?php echo $data['photo_utilisateur']; ?>  </td>
                     
-                    <td> <?php echo $data['prenom_utilisateur'] ?> </td> 
+                    <td> <?php echo $data['photo_utilisateur'] ?>  </td>
                     
-                    <td> <?php echo $data['nom_utilisateur']; ?> </td>
+                    <td> <?php echo $data['prenom_utilisateur'] ?> </td>
                     
-                    <td> <?php echo $data['pseudo_utilisateur'] ?> </td>
+                    <td> <?php echo $data['nom_utilisateur'] ?> </td>
+                    
+                    <td> <?php echo $data['pseudo_utilisateur'] ?>" </td>
 
                     <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td>  <a href="effacer_du_hub.php?pseudo=<?= $data['pseudo_utilisateur'] ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
+                    <td> <a href="effacer_du_hub.php?email=<?= $data['email_utilisateur'] ?> &pseudo=<?= $data['pseudo_utilisateur'] ?> &emaillogin=<?= $d ?>"> <img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
+
+                    
                   </tr>
                   <?php
-
-
-
-              
-                  }
                 }
-
-        
+            }
+          }
           else {
               echo "Database Projet_web is not found.";
           }
@@ -227,3 +227,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 </body>
 </html>
+
+
+
+
+
