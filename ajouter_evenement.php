@@ -6,7 +6,7 @@
 <html>
 <head>
 
-	<title> Profil </title>
+	<title> Ajouter Evenement </title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,55 +149,44 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Emplois </h1>
+    <h1> Accueil </h1>
     
     <div class="row">
     <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
-      <a href="Voir_mes_emplois.php"> <input type="button" value="Voir vos publications"> </a>
-      <a href="Ajouter_emploi.php"> <input type="button" value="Ajouter une annonce"> </a>
-      <a href="Partager_emploi.php"> <input type="button" value="Partager une offre"> </a>
+      
     </div>
 
 
     <div class="col-lg-9" style="height:1500px; "> 
-      <h2> Ajouter une annonce </h2>
-      <form action="Ajouter_emploi2.php" method="post"> 
+      <h2> Ajouter un evenement </h2>
+      <form action="ajouter_evenement2.php" method="post"> 
         <table>
           <tr>
-            <td> <input type="text" name="titre" placeholder="Titre" style= "margin:10px; width:300px; height:30px;" required> </td> 
+            <td> <input type="text" name="nom" placeholder="Nom de l'&eacute;v&eacute;nement" style= "margin:10px; width:300px; height:30px;" required> </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="societe" placeholder="Soci&eacute;t&eacute;" style= "margin:10px; width:300px; height:30px;" required> </td> 
+            <td>  <input type="date" name="date" placeholder="Date" style= "margin:10px; width:300px; height:30px;" required> </td> 
           </tr>
           <tr>
-              <td>   <select name="type" style="margin:10px; width:300px; height:30px;" required>
-                          <option value="Choix" selected disabled>Contrat :</option> 
-                          <option value="CDD">CDD</option> 
-                          <option value="CDI">CDI</option>
-                          <option value="ALternance">Alternance</option>
-                          <option value="Stage">Stage</option>
-                          <option value="Interim">Interim</option>
-                      </select>
-  
-              </td> 
+              
           </tr>
           <tr>
-            <td>  <input type="text" name="experience" placeholder="&Eacute;xp&eacute;rience requise" style= "margin:10px; width:300px; height:70px;" required> </td> 
-          </tr>
-          <tr>
-            <td> <input type="text" name="capacite" placeholder="Capacit&eacute;s" style= "margin:10px; width:300px; height:70px;" required> </td> 
+            <td>  <input type="time" name="heure" placeholder="Heure" style= "margin:10px; width:300px; height:70px;" required> </td> 
           </tr>
           <tr>
             <td> <input type="text" name="lieu" placeholder="Lieu" style= "margin:10px; width:300px; height:30px;" required> </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="remuneration" placeholder="R&eacute;mun&eacute;ration" style= "margin:10px; width:300px; height:30px;" required> </td> 
+            <td> <input type="text" name="description" placeholder="Description" style= "margin:10px; width:300px; height:70px;" required> </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="description" placeholder="Description" style= "margin:10px; width:300px; height:70px;" required> </td> 
-          </tr>
-          <tr>
-            <td>  <input type="text" name="duree" placeholder="Dur&eacute;e" style= "margin:10px; width:300px; height:30px;" required> </td> 
+            <td>  <select name="participation" style="margin:10px; width:300px; height:30px;" required>
+                          <option value="participation ?" selected disabled>Participation ? </option> 
+                          <option value="1">oui</option> 
+                          <option value="0">non</option> 
+                      </select>
+  
+              </td> 
           </tr>
           <tr>
             <td> <input type="submit" style= "margin:10px; width:300px; height:50px;" value="Publier"> </td>

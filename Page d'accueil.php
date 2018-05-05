@@ -114,7 +114,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
             <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
             <li><a href="Mode Admin.php">Mode admin</a></li>
-            <li><a href="#">Déconnexion</a></li>
+            <li><a href="Connexion.html">Déconnexion</a></li>
           </ul>
         </li>
       </ul>
@@ -137,7 +137,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
     <div class="col-lg-3" style=" height:1500px; "> 
 
 <center>
-      <button type="button" class="btn btn-default" style="margin-top: 100px;">Ajouter un évènement</button></center>
+      <a href="ajouter_evenement.php"> <button type="button" class="btn btn-default" style="margin-top: 100px;">Ajouter un évènement</button> </a></center>
     </div>
 
 

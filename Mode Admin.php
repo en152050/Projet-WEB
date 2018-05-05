@@ -115,7 +115,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
             <li><a href="Media.php">Photos et vidéos</a></li>
             <li class="divider"></li>
             <li><a href="Mode Admin.php">Mode admin</a></li>
-            <li><a href="#">Déconnexion</a></li>
+            <li><a href="Connexion.html">Déconnexion</a></li>
           </ul>
         </li>
       </ul>
