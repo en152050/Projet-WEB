@@ -19,6 +19,8 @@ $db_found = mysqli_select_db($db_handle,$database);
 if ($db_found) {
     $sql = "INSERT INTO utilisateur (pseudo_utilisateur, mot_de_passe_utilisateur, email_utilisateur, nom_utilisateur, prenom_utilisateur, photo_utilisateur, administrateur_utilisateur, statut_utilisateur, region_utilisateur, cv_utilisateur, description_utilisateur) VALUES ('$pseudo','$password','$email','$nom','$prenom','0', 0, '0','0','0', '0')";
     $result = mysqli_query($db_handle, $sql);
+
+    header("location:Connexion.php");
 }
 else {
     echo "Database Projet_web is not found.";
