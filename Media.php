@@ -240,8 +240,9 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 <div class="thumbnail" style="margin: 14px;">
 
-
+<a href="<?php echo $row['nom_media'] ?>" class="thumbnail">
     <img src="<?php echo $row['nom_media'] ?>" class="img-thumbnail" alt="lol" width="304" height="170" style="  margin: 30px; height : 230px; width:auto;"></br>
+</a>
 <p>
     
     <h3><?php echo $row['nom_media'];?></h3></br>
