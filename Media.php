@@ -178,32 +178,6 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 </div>
 
 
-
-<div class="container">
-        <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title"><?php echo $row['nom_media'] ?></h4>
-            </div>
-            <div class="modal-body">
-              <img src="<?php echo $row['nom_media'] ?>" class=img-thumbnail alt="logo" style="width:auto; height:500px;">
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-</div>
-
-
-
-
   <div class=cacamou>
     <div class=caca>
       <div class="container-fluid" style="padding-top: 0px; margin-top: 40px;">
@@ -218,11 +192,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
   $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
 
-  foreach($rows as $row): ?>
-
-
-
-  <?php endforeach; ?>
+ ?>
   <div class=lol>
   </div>
   </div>
@@ -254,66 +224,44 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
       <div class="col-sm-9" style="background-color: #F2F2F2">
 
 
+<?php
+        $db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234"); $a = $_SESSION['login']; ?> </h1>
+
+        <?php $a = $_SESSION['login'];
+
+        $sql="SELECT * FROM affiliation_media WHERE pseudo_utilisateur = '$a'";
+
+        $stmt = $db->query($sql);
+
+  $rows = $stmt->fetchALL(PDO::FETCH_ASSOC); ?>
 
 
-<div class="container">
+       <?php foreach($rows as $row): ?>
 
-      <div class="row">
-         <?php
+<img src="<?php echo $row['nom_media'] ?>" class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 30px; height : 275px; width:auto;">
 
-$db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234");
+<?php
+$medNum = $row['numero_media'];
+echo $medNum;
+ ?> 
 
-$a = $_SESSION['login'];
+<?php
+ $sql="SELECT * FROM media WHERE numero_media = '$medNum'";
 
-$sql="SELECT * FROM media WHERE pseudo_util = '$a'";
+        $stmt = $db->query($sql);
 
-$stmt = $db->query($sql);
+  $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-$rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
+$lol = $row['nom_media'];
+echo $lol;
 
+?>
 
-
-foreach($rows as $row): ?>
-
-
-
-         <!-- <a href="#" data-toggle="modal" data-target="#myModal" class="thumbnail" >-->
-
-<div class="container" style="margin-top: 30px;" >
-            <img src="<?php echo $row['nom_media'] ?>" alt="imageNotFound " class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 20px; height : 275px; width:auto; float : left;">
-
-            <p style=" padding : 50px;">
-
-          <h3><?php echo $row['nom_media'] ?></h3></br>
-          <?php echo $row['date_media'] ?></br>
-          <?php echo $row['heure_media'] ?></br>
-          <?php echo "à "; echo $row['lieu_media'] ?></br>
-          <h4 style="color:blue;"> <?php echo $row['nb_de_like_media']; echo " LIKES"; ?></h4>
-
-        </p>
-
-       <button type="button" class="btn btn-info">Liker</button>
-
-
-</div>
-</br>
-<?php endforeach; ?>
-
-
-     </div>
-        
-      </div>
+    <?php endforeach; ?>
 
 
 
 
-      </div>
-
-
-     <!-- <div class="col-sm-1" style="background-color:pink;">   
-     </div>-->
-   </div>
-  </div>
 
 </body>
 </html>

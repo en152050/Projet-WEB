@@ -175,9 +175,7 @@
   $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
 
   foreach($rows as $row): ?>
-
-
-
+  
   
   <div class=lol>
   </div>
