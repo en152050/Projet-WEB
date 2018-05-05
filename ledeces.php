@@ -273,8 +273,6 @@ if ($a == "Etudiant"):
 
 <?php
 endif;
-
-echo $a;
 ?>
 
 

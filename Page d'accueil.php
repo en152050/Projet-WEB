@@ -134,12 +134,72 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
     <h1> Accueil </h1>
     
     <div class="row">
-    <div class="col-lg-3" style="border-right:inset; height:1500px; "> 
-      
+    <div class="col-lg-3" style=" height:1500px; "> 
+
+<center>
+      <button type="button" class="btn btn-default" style="margin-top: 100px;">Ajouter un évènement</button></center>
     </div>
 
 
     <div class="col-lg-9" style="height:1500px; "> 
+
+
+
+
+<?php
+        $db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234"); $a = $_SESSION['login']; ?> </h1>
+
+        <?php $a = $_SESSION['login'];
+
+        $sql="SELECT * FROM evenement";
+
+        $stmt = $db->query($sql);
+
+  $rows = $stmt->fetchALL(PDO::FETCH_ASSOC); ?>
+
+
+       <?php foreach($rows as $row):
+
+?>
+
+<div class="thumbnail">
+  <?php
+?>
+
+<img src="<?php echo $row['image'] ?>" class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 20px;margin-top : 20px; margin-bottom : 13px;height : 275px; width:auto;">
+
+<h2 style="color:#B40431">
+
+<?php
+       echo $row['nom_evenement'];?></h2>
+       <h3><?php echo $row['lieu_evenement'];?></h3></br><?php
+       echo "Le "; echo $row['date_evenement'];?></br><?php
+       echo "à "; echo $row['heure_evenement'];?></br><?php
+
+
+if ($row['participation_evenement'] == "1"):
+
+  ?> <img src="ok.png"  style=" float : left; height : 15px; width:auto;">
+
+  <?php echo "Vous participez !";
+
+?>
+
+  
+<?php else:
+?>
+<img src="non.png"  style=" float : left; height : 15px; width:auto;"> <?php
+  echo "Vous ne participez pas";
+
+ 
+       endif;?></br></br> 
+       <h4 style="font-style: italic"> <?php echo $row['description_evenement'];
+
+?></h4>
+</div>
+    <?php endforeach; ?>
+
+
     </div>
 
   </div>
