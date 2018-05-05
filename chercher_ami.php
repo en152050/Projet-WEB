@@ -198,11 +198,11 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
                     <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td> 
+                    <td>
 
-                    	<a href="ajouter_ami.php?pseudo=<?= $data2['pseudo_utilisateur'] ?>"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
+                    	<a href="ajouter_ami.php?pseudo=<?= $data['pseudo_utilisateur'] ?>"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
 
-                    <td> <select name="type" style="margin:10px; width:300px; height:30px;" required>
+                    <td> <select name="type" style="width:300px; height:30px;" required>
                           <option value="Choix de la relation" selected disabled>Contrat :</option> 
                           <option value="amicale">CDD</option> 
                           <option value="professionnelle">CDD</option> 

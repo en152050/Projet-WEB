@@ -14,6 +14,8 @@
     $sql = "INSERT INTO reseau (pseudo_utilisateur, email_utilisateur, relation_reseau) VALUES ('$c','hade14@hotmail.fr','amicale')";
     $result = mysqli_query($db_handle, $sql);
 
+   
+
 
     
 

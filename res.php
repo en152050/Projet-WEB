@@ -189,7 +189,11 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
                 $result2 = mysqli_query($db_handle, $sql2);
                 
                 while ($data2 = mysqli_fetch_assoc($result2)) {
-                  
+                  $sql3 = "SELECT email_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '$a'";
+                  $result3 = mysqli_query($db_handle, $sql3);
+                  while ($data3 = mysqli_fetch_assoc($result3)) {
+                    $d=$data3['email_utilisateur'];
+
                   ?>
                   <tr> 
 
@@ -205,7 +209,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
                     <td> <?php echo $data['relation_reseau'] ?> </td>
 
-                    <td> <a href="effacer_ami.php?email=<?= $data2['email_utilisateur'] ?>  ?pseudo=<?= $data2['pseudo_utilisateur'] ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
+                    <td> <a href="effacer_ami.php?email=<?= $data2['email_utilisateur'] ?>  &pseudo=<?= $data2['pseudo_utilisateur'] ?>  &emaillogin=<?= $d ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
                     
                   </tr>
                   <?php
@@ -213,7 +217,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
               
-
+                  }
                 }
 
                
