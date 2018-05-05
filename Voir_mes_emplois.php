@@ -187,7 +187,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
                                             echo "Duree : "            .$data2['duree_emploi'].  '<br>';            
                                             
                                             
-                                            ?> <a href="effacer.php"> <img src="effacer.png" alt="effacer" height="30" width="30" > </a>
+                                            ?> <a href="effacer_emploi.php?nom_emploi=<?= $data2['nom_emploi'] ?>"> <img src="effacer.png" alt="effacer" height="30" width="30" > </a>
                                               <a href="modifier_emploi.php"> <img src="modifier.png" alt="modifier" height="30" width="30" > </a>
                                             <?php
                                             echo "<br />";
