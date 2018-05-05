@@ -1,5 +1,16 @@
 <?php
   session_start();
+  $nom_emploi=$_GET['nom_emploi'];
+  $description_emploi=$_GET['description_emploi'];
+  $experience_emploi=$_GET['experience_emploi'];
+  $capacites_emploi=$_GET['capacites_emploi'];
+  $remuneration_emploi=$_GET['remuneration_emploi'];
+  $lieu_emploi=$_GET['lieu_emploi'];
+  $type_emploi=$_GET['type_emploi'];
+  $societe_emploi=$_GET['societe_emploi'];
+  $duree_emploi=$_GET['duree_emploi'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -162,17 +173,18 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
     <div class="col-lg-9" style="height:1500px; "> 
       <h2> Modifier l'annonce </h2>
       <form action="modifier_emploi2.php" method="post"> 
+        <?php  $_SESSION['nom_emploi'] = $nom_emploi; ?>
         <table>
           <tr>
-            <td> <input type="text" name="titre" placeholder="Titre" style= "margin:10px; width:300px; height:30px;" > </td> 
+            <td> <input type="text" name="titre" value="<?php echo $nom_emploi?>" placeholder="Titre" style= "margin:10px; width:300px; height:30px;" > </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="societe" placeholder="Soci&eacute;t&eacute;" style= "margin:10px; width:300px; height:30px;" > </td> 
+            <td>  <input type="text" name="societe" value="<?php echo $societe_emploi?>" placeholder="Soci&eacute;t&eacute;" style= "margin:10px; width:300px; height:30px;" > </td> 
           </tr>
           <tr>
               <td>   <select name="type" style="margin:10px; width:300px; height:30px;" >
-                          <option value="Choix" selected disabled>Contrat :</option> 
-                          <option value="CDD">CDD</option> 
+                          <option value="Choix" disabled>Contrat :</option> 
+                          <option value="CDD" selected>CDD</option> 
                           <option value="CDI">CDI</option>
                           <option value="ALternance">Alternance</option>
                           <option value="Stage">Stage</option>
@@ -182,22 +194,22 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
               </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="experience" placeholder="&Eacute;xp&eacute;rience requise" style= "margin:10px; width:300px; height:70px;" > </td> 
+            <td>  <input type="text" name="experience" value="<?php echo $experience_emploi?>" placeholder="&Eacute;xp&eacute;rience requise" style= "margin:10px; width:300px; height:70px;" > </td> 
           </tr>
           <tr>
-            <td> <input type="text" name="capacite" placeholder="Capacit&eacute;s" style= "margin:10px; width:300px; height:70px;" > </td> 
+            <td> <input type="text" name="capacite" value="<?php echo $capacites_emploi?>" placeholder="Capacit&eacute;s" style= "margin:10px; width:300px; height:70px;" > </td> 
           </tr>
           <tr>
-            <td> <input type="text" name="lieu" placeholder="Lieu" style= "margin:10px; width:300px; height:30px;" > </td> 
+            <td> <input type="text" name="lieu" value="<?php echo $lieu_emploi?>" placeholder="Lieu" style= "margin:10px; width:300px; height:30px;" > </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="remuneration" placeholder="R&eacute;mun&eacute;ration" style= "margin:10px; width:300px; height:30px;" > </td> 
+            <td>  <input type="text" name="remuneration" value="<?php echo $remuneration_emploi?>"  placeholder="R&eacute;mun&eacute;ration" style= "margin:10px; width:300px; height:30px;" > </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="description" placeholder="Description" style= "margin:10px; width:300px; height:70px;" > </td> 
+            <td>  <input type="text" name="description" value="<?php echo $description_emploi?>" placeholder="Description" style= "margin:10px; width:300px; height:70px;" > </td> 
           </tr>
           <tr>
-            <td>  <input type="text" name="duree" placeholder="Dur&eacute;e" style= "margin:10px; width:300px; height:30px;" > </td> 
+            <td>  <input type="text" name="duree" value="<?php echo $duree_emploi?>" placeholder="Dur&eacute;e" style= "margin:10px; width:300px; height:30px;" > </td> 
           </tr>
           <tr>
             <td> <input type="submit" style= "margin:10px; width:300px; height:50px;" value="Modifier"> </td>

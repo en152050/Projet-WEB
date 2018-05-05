@@ -188,7 +188,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
                                             
                                             
                                             ?> <a href="effacer_emploi.php?nom_emploi=<?= $data2['nom_emploi'] ?>"> <img src="effacer.png" alt="effacer" height="30" width="30" > </a>
-                                              <a href="modifier_emploi.php"> <img src="modifier.png" alt="modifier" height="30" width="30" > </a>
+                                              <a href="modifier_emploi.php?nom_emploi=<?= $data2['nom_emploi'] ?> &description_emploi=<?= $data2['description_emploi'] ?> &experience_emploi=<?= $data2['experience_emploi'] ?> &capacites_emploi=<?= $data2['capacites_emploi'] ?> &remuneration_emploi=<?= $data2['remuneration_emploi'] ?> &lieu_emploi=<?= $data2['lieu_emploi'] ?> &type_emploi=<?= $data2['type_emploi'] ?> &societe_emploi=<?= $data2['societe_emploi'] ?> &duree_emploi=<?= $data2['duree_emploi'] ?>"> <img src="modifier.png" alt="modifier" height="30" width="30" > </a>
                                             <?php
                                             echo "<br />";
                                             echo "<br />";
