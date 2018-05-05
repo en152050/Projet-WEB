@@ -174,6 +174,8 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
               <th> Email</th>
 
               <th> </th>
+
+              <th> </th>
             </tr>
           </thead>
           <?php 
@@ -196,7 +198,15 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
                     <td> <?php echo $data['email_utilisateur'] ?> </td>
 
-                    <td> <a href="ajouter_ami.php"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
+                    <td> 
+
+                    	<a href="ajouter_ami.php?pseudo=<?= $data2['pseudo_utilisateur'] ?>"><img src="ajouter_ami.png" alt="ajouter" width="20" height="20"> </a> </td>
+
+                    <td> <select name="type" style="margin:10px; width:300px; height:30px;" required>
+                          <option value="Choix de la relation" selected disabled>Contrat :</option> 
+                          <option value="amicale">CDD</option> 
+                          <option value="professionnelle">CDD</option> 
+                      </select></td>
 
                     
                   </tr>

@@ -205,7 +205,7 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
                     <td> <?php echo $data['relation_reseau'] ?> </td>
 
-                    <td> <a href="effacer_ami.php"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
+                    <td> <a href="effacer_ami.php?email=<?= $data2['email_utilisateur'] ?>  ?pseudo=<?= $data2['pseudo_utilisateur'] ?>"><img src="effacer.png" alt="effacer" width="20" height="20"> </a> </td>
                     
                   </tr>
                   <?php
