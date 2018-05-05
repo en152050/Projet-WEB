@@ -6,17 +6,31 @@
 <html>
 <head>
 
+
+
 	<title> Profil </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-gallery.css">
 	<link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="bootstrap-gallery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-gallery.css">
 
   <style type="text/css">
+
 
   .menu
   {
@@ -131,12 +145,180 @@ https://www.journaldunet.fr/web-tech/developpement/1202675-quelles-modifications
 
 
 <div class="container-fluid" style="padding-top: 80px;">
-    <h1> Media </h1>
+    <h1 style="margin-bottom: 0px; "> Vos photos </h1>
+    <div class="container">  
+    <div class="row">
+  
+
+    </div>
 </div>
 
 
 
 
+        
+        <!-- <div class="col-xs-3">
+            <a href="images/image2.jpg" class="thumbnail">
+                <img src="images/image2-thumb.jpg" alt="Image 2" />
+            </a>
+        </div>
+        
+        <div class="col-xs-3">
+            <a href="images/image3.jpg" class="thumbnail">
+                <img src="images/image3-thumb.jpg" alt="Image 3" />
+            </a>
+        </div>
+        
+        <div class="col-xs-3">
+            <a href="images/image4.jpg" class="thumbnail">
+                <img src="images/image4-thumb.jpg" alt="Image 4" />
+            </a> 
+        </div>-->
+    </div>
+</div>
+
+
+
+<div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><?php echo $row['nom_media'] ?></h4>
+            </div>
+            <div class="modal-body">
+              <img src="<?php echo $row['nom_media'] ?>" class=img-thumbnail alt="logo" style="width:auto; height:500px;">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+</div>
+
+
+
+
+  <div class=cacamou>
+    <div class=caca>
+      <div class="container-fluid" style="padding-top: 0px; margin-top: 40px;">
+        <h1 style="color: white"> <?php 
+        $db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234"); $a = $_SESSION['login']; echo $a;?> </h1>
+
+        <?php $a = $_SESSION['login'];
+
+        $sql="SELECT * FROM utilisateur WHERE pseudo_utilisateur = '$a'";
+
+        $stmt = $db->query($sql);
+
+  $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
+
+  foreach($rows as $row): ?>
+
+
+
+  <?php endforeach; ?>
+  <div class=lol>
+  </div>
+  </div>
+
+
+
+  </div>
+
+
+  <div class="container-fluid">
+    
+    <div class="row">
+
+     <div class="col-sm-3" style="background-color: white ; color: #08088A; font-family: Verdana; font-size : 18px; position:relative;">
+            <h1 style="color:white;"> -</h1> </br>
+            <center> <p style="margin-bottom: 20px;">
+              <form action="recherche.php">
+        <input type="text" placeholder="Recherche" name="nom">  
+        <button type="submit"><i class="fa fa-search" ></i></button></center>
+      </form>
+             <button type="button" class="btn" style="margin-left:10%; font-size: 23px; margin-top: 20px;">Rechercher dans mes photos</button></p>
+      </div>
+
+<div class="bouton" style="background-color: #E0F2F7;">
+  <button type="button" class="btn btn-default" style="margin-top : 25px; margin-left: 15px; margin-bottom: 40px;">Publier une photo/vidéo</button>
+
+</div>
+      
+      <div class="col-sm-9" style="background-color: #F2F2F2">
+
+
+
+
+<div class="container">
+
+      <div class="row">
+         <?php
+
+$db = new PDO("mysql:host=localhost; dbname=projet_web; charset=UTF8", "root", "1234");
+
+$a = $_SESSION['login'];
+
+$sql="SELECT * FROM media WHERE pseudo_util = '$a'";
+
+$stmt = $db->query($sql);
+
+$rows = $stmt->fetchALL(PDO::FETCH_ASSOC);//sans doublons de données.
+
+
+
+foreach($rows as $row): ?>
+
+
+
+         <!-- <a href="#" data-toggle="modal" data-target="#myModal" class="thumbnail" >-->
+
+<div class="container" style="margin-top: 30px;" >
+            <img src="<?php echo $row['nom_media'] ?>" alt="imageNotFound " class="img-thumbnail" alt="lol" width="304" height="170" style=" margin-left : 20px; height : 275px; width:auto; float : left;">
+
+            <p style=" padding : 50px;">
+
+          <h3><?php echo $row['nom_media'] ?></h3></br>
+          <?php echo $row['date_media'] ?></br>
+          <?php echo $row['heure_media'] ?></br>
+          <?php echo "à "; echo $row['lieu_media'] ?></br>
+          <h4 style="color:blue;"> <?php echo $row['nb_de_like_media']; echo " LIKES"; ?></h4>
+
+        </p>
+
+       <button type="button" class="btn btn-info">Liker</button>
+
+
+</div>
+</br>
+<?php endforeach; ?>
+
+
+     </div>
+        
+      </div>
+
+
+
+
+      </div>
+
+
+     <!-- <div class="col-sm-1" style="background-color:pink;">   
+     </div>-->
+   </div>
+  </div>
 
 </body>
 </html>
+
+
+
+
+
